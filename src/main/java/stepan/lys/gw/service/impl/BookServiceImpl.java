@@ -3,6 +3,7 @@ package stepan.lys.gw.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import stepan.lys.gw.model.Book;
+import stepan.lys.gw.model.Category;
 import stepan.lys.gw.repository.BookRepository;
 import stepan.lys.gw.service.BookService;
 
@@ -39,7 +40,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findBookByCategoryId(Long id) {
-        return bookRepository.findByCategoryId(id);
+    public Book update(Long id, Book book) {
+        Book oldBook = bookRepository.getOne(id);
+        if (oldBook != null) {
+            book.setId(oldBook.getId());
+            create(book);
+
+            return book;
+        }
+
+        return null;
     }
+
+    //    @Override
+//    public List<Book> findBookByCategoryId(Long id) {
+//        return bookRepository.findByCategoryId(id);
+//    }
 }
