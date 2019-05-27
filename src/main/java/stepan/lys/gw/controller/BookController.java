@@ -5,23 +5,40 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import stepan.lys.gw.model.Book;
+import stepan.lys.gw.model.Genre;
 import stepan.lys.gw.service.BookService;
+import stepan.lys.gw.service.GenreService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
-@RequestMapping("books")
+@RequestMapping("book")
 public class BookController {
 
     private final BookService bookService;
+    private final GenreService genreService;
+
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, GenreService genreService) {
         this.bookService = bookService;
+        this.genreService = genreService;
     }
 
     @PostMapping
     public ResponseEntity<Book> add(@RequestBody Book book) {
+        System.out.println(book);
+
+//        Set<Long> genres = book.getGenresId();
+//
+//        genres.forEach(g -> {
+//            Genre byId = genreService.findById(g);
+//            book.addGenre(byId);
+//        });
+
+        System.out.println(book);
+
         return new ResponseEntity<>(
                 bookService.create(book),
                 HttpStatus.CREATED

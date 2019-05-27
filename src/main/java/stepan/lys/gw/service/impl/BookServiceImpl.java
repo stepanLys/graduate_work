@@ -3,26 +3,34 @@ package stepan.lys.gw.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import stepan.lys.gw.model.Book;
-import stepan.lys.gw.model.Category;
+import stepan.lys.gw.model.Genre;
 import stepan.lys.gw.repository.BookRepository;
+import stepan.lys.gw.repository.GenreRepository;
 import stepan.lys.gw.service.BookService;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
+    private final GenreRepository genreRepository;
 
     @Autowired
-    public BookServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(BookRepository bookRepository, GenreRepository genreRepository) {
         this.bookRepository = bookRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
     public Book create(Book book) {
+
         return bookRepository.save(book);
+//        return null;
+
     }
+
 
     @Override
     public Book findById(Long id) {
