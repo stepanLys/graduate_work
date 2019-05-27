@@ -1,0 +1,26 @@
+{
+  "name": "gw",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/stepanLys/graduate_work.git",
+  "author": "stepanLys <stepan.lys98@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.6.10",
+    "vue-resource": "^1.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
